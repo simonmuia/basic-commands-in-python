@@ -243,5 +243,92 @@
 # count = 0
 # while count < 10: #run for 10 times
 #   print("Condition is True")
-#   count = count + 1
+#   count +=
 # print("After the loop")
+
+# items = [1, 2, 3, 4]
+# Basic for loop
+
+# for item in items:
+#   print(item)
+
+
+#get range of numbers
+
+# for item in range(15):
+#   print(item)
+#items = ["simon", "peter", "mark", "doe"]
+#get index of items
+# for index, item in enumerate(items):
+#   print(index, item) #prints items alongside their indexes
+
+#continue - stops current iteration
+#break - stops the loop all together
+# items = [1,2,3,4]
+
+# for item in range(15):
+#   if item == 2:
+#     continue  #skip num 2 
+#   elif item == 10:
+#     break #stop the loop
+#   print(item)
+  
+#Classes 
+
+#Object is an instance of a class, class is a type of object
+
+# class Dog:
+#   def bark(self):
+#     print("woof!")
+# roger = Dog()
+
+# print(type(roger)) #check type of object
+
+# print(roger)
+
+#Using Constructors 
+# class Dog:
+#   def __init__(self,name,age): #type of constructors
+#     self.name = name
+#     self.age = age
+#   def bark(self):
+#     print("woof!")
+    
+# roger = Dog("Roger", 8)
+
+# print(roger.name)
+# print(roger.age)
+# roger.bark()
+
+#Class Inheritance'
+# class Animal:
+#   def walk(self):
+#     print("Walking...")
+    
+# class Dog(Animal): #inherit from animal class
+#   def __init__(self,name,age): #type of constructors
+#     self.name = name
+#     self.age = age
+#   def bark(self):
+#     print("woof!")
+    
+# roger = Dog("Roger", 8)
+
+# print(roger.name)
+# print(roger.age)
+# roger.walk()
+# roger.bark()
+
+
+#Modules 
+#Every python file is a module
+# Basic import
+# from dog import bark #import a function from a file
+# bark()
+
+#import from a subfolder
+# When importing a function in file located in a specific subfolder,
+#You create file called __init__.py to enable imports accessible from files in that subfolder
+
+# from lib.dog import bark
+# bark()
