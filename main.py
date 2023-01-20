@@ -332,3 +332,16 @@
 
 # from lib.dog import bark
 # bark()
+
+#importing python standard libraries
+#lets import math module
+#basic import
+# import math
+# squareRoot = math.sqrt(4)
+# print(squareRoot)
+
+#import specific function in the library
+#e.g sqrt function
+# from  math import sqrt
+
+# print(sqrt(4))
