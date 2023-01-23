@@ -889,4 +889,91 @@ Traceback (most recent call last):
     raise NameError("Hi there")  # Raise Error
 NameError: Hi there"""
 
+"""# Example 2
 
+class DogNotFoundException(Exception):
+  print("Inside")
+  pass
+try:
+  raise DogNotFoundException()
+except DogNotFoundException:
+  print("Dog Not Found!")
+"""
+
+#PIP 
+"""
+What is a pip?
+Python pip is the package manager for Python packages. We can use pip to install packages that do not come with Python. The basic syntax of pip commands in command prompt is:
+
+Python pip comes pre-installed on 3.4 or older versions of Python. To check whether pip is installed or not type the below command in the terminal.
+
+Specifying Package Version
+We can also install the package of a specific version by using the below command.
+
+Syntax: 
+
+pip install package_name==version
+
+"""
+
+
+#List Compression
+#They operate sort of kinda loop
+
+# numbers = [1,2,3,4,5]
+
+# numbers_power_2 = [n*2 for n in numbers]
+
+# print(numbers_power_2)
+
+# number_power_2 = []
+"""
+for n in numbers:
+  number_power_2.append(n**2)
+
+print(number_power_2)
+"""
+
+#Using lambda
+"""numbers_power_2 = list(map(lambda n : n**2, numbers))
+
+print(numbers_power_2)"""
+
+#POLYMORPHISM
+"""
+What is Polymorphism: The word polymorphism means having many forms. In programming, polymorphism means the same function name (but different signatures) being used for different types. The key difference is the data types and number of arguments used in function.
+"""
+
+#Example
+
+# class Dog:
+#   def eat(self):
+#     print("Eating dog food")
+
+# class Cat:
+#   def eat(self):
+#     print('Eating cat food')
+
+# animal1 = Dog()
+# animal2 = Cat()
+
+# animal1.eat()
+# animal2.eat()
+
+
+#OPERATOR OVERLOADING
+"""
+Operator Overloading means giving extended meaning beyond their predefined operational meaning. For example operator + is used to add two integers as well as join two strings and merge two lists. It is achievable because ‘+’ operator is overloaded by int class and str class. You might have noticed that the same built-in operator or function shows different behavior for objects of different classes, this is called Operator Overloading. """
+
+#Example
+"""
+class Dog:
+  def __init__(self,name,age):
+    self.name = name
+    self.age = age
+  def __gt__(self,other):
+    return True if self.age > other.age else False
+roger = Dog('Roger', 8)
+syd = Dog('Syd', 7)
+
+print(roger>syd)"""
