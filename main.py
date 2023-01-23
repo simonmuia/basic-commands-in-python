@@ -299,7 +299,7 @@ print(age.bit_length())
 
 #while loops
 #run a function until a condition is false
-  """
+"""
   count = 0
 while count < 10: #run for 10 times
   print("Condition is True")
@@ -311,7 +311,7 @@ Basic for loop
 
 for item in items:
   print(item)
-  """
+"""
 
 #get range of numbers
 
@@ -467,7 +467,7 @@ parser = argparse.ArgumentParser(
 )
 
 #add args you want to accept
-parser.add_argument('-c', '--color', metavar='color', required=True, help='the color to search for')
+parser.add_argument('-c', '--color', metavar='color', required=True, choices={"red", "yellow"}, help='the color to search for')
 
 args = parser.parse_args()
 print(args.color)
@@ -476,5 +476,217 @@ print(args.color)
 #prints "red"
 """
 
+# Lambda Functions
+# Example
+"""Lambda -> An anonymous inline function consisting of a single expression which is evaluated when the function is called. The syntax to create a lambda function is lambda [parameters]: expression"""
+"""
+lambda num : num * 2
 
+multiply = lambda a,b : a*b
+
+print(multiply(2,4))"""
+
+
+#map() , filter() , reduce()
+# Map function - map() function returns a map object(which is an iterator) of the results after applying the given function to each item of a given iterable (list, tuple etc.)
+
+#Syntax - map(fun, iter) #fun - It is a function to which map passes each element of given iterable. #iter - It is a iterable which is to be mapped.
+
+#Given the following list of items, map each to a list of its double:
+"""numbers = [1,2,3]
+#define function to double the iterables 
+def double(a):
+  return a*2
+
+#1. Map() 
+result = map(double, numbers)
+print(list(result)) #print results"""
+
+#use lambda function to solve above example
+"""
+numbers = [1,2,3]
+#define lambda function to double the iterables 
+double = lambda a : a*2
+
+#1. Map() 
+result = map(double, numbers)
+print(list(result)) #print results"""
+
+#2.FILTER()
+
+"""
+* The filter() method filters the given sequence with the help of a function that tests each element in the sequence to be true or not.
+
+* 
+filter(function, sequence)
+Parameters:
+function: function that tests if each element of a 
+sequence true or not.
+sequence: sequence which needs to be filtered, it can 
+be sets, lists, tuples, or containers of any iterators.
+Returns:
+returns an iterator that is already filtered.
+"""
+#Example
+#from the following list of items, print even numbers to a list
+"""numbers=[1,2,3]
+
+def isEven(n):
+  return n%2 == 0 #Returns True
+
+result = filter(isEven, numbers)
+
+print(list(result))"""
+
+
+#use lambda fnxs
+"""numbers =[1,2,3,4]
+
+isEven = lambda n: n%2==0
+
+result = filter(isEven,numbers)
+print(list(result))"""
+
+#3. REDUCE()
+
+"""
+The reduce(fun,seq) function is used to apply a particular function passed in its argument to all of the list elements mentioned in the sequence passed along.
+"""
+
+#Example function without reduce function
+#Calculate total expenses of items in the list of expeses
+
+"""expenses = [
+  ('Dinner', 80),
+  ('Car', 120)
+]
+sum = 0
+for expense in expenses:
+  sum+=expense[1]
+
+print(sum)"""
+#example use of lambda function to render same solution
+#import reduce function from functools standard library 
+"""from functools import reduce
+
+expenses = [
+  ('Dinner', 80),
+  ('Car', 120)
+]
+#lambda picks the items in the list, adds all second subitems
+sum = reduce(lambda a,b: a[1]+b[1], expenses)
+
+print(sum)"""
+
+#Recurssion
+
+#recursion - ability of function to call itself
+
+#example
+"""
+def factorial(n):
+  if n==1:return 1
+  return n * factorial(n-1)
+
+print(factorial(3))
+print(factorial(4))
+print(factorial(5))"""
+
+#Decorators
+"""
+Decorators allow us to wrap another function in order to extend the behaviour of the wrapped function, without permanently modifying it. 
+
+SYNTAX FOR DECORATORS
+
+@gfg_decorator
+def hello_decorator():
+    print("Gfg")
+
+'''Above code is equivalent to -
+
+def hello_decorator():
+    print("Gfg")
+    
+hello_decorator = gfg_decorator(hello_decorator)'''
+
+"""
+
+#example
+#Decorator - function that takes another function as parameter, wraps it as inner function and performs the job it has to do and returns it in a function
+
+"""def logtime(func):
+  def wrapper():
+    #do something before
+    print("Before")
+    val = func()
+    #do something after
+    print("After")
+    return val
+  return wrapper
+@logtime
+def hello():
+  print("Hello")
+
+hello()"""
+
+#These functions can be used in loggin, test performance, perform caching, verify informations etc
+
+#DOCSTRINGS
+
+"""
+Python documentation strings (or docstrings) provide a convenient way of associating documentation with Python modules, functions, classes, and methods.
+
+It’s specified in source code that is used, like a comment, to document a specific segment of code. Unlike conventional source code comments, the docstring should describe what the function does, not how
+
+What should a docstring look like?
+
+The doc string line should begin with a capital letter and end with a period.
+The first line should be a short description.
+If there are more lines in the documentation string, the second line should be blank, visually separating the summary from the rest of the description.
+The following lines should be one or more paragraphs describing the object’s calling conventions, its side effects, etc.
+Declaring Docstrings: The docstrings are declared using ”’triple single quotes”’ or “””triple double quotes””” just below the class, method or function declaration. All functions should have a docstring.
+
+Accessing Docstrings: The docstrings can be accessed using the __doc__ method of the object or using the help function.
+The below examples demonstrates how to declare and access a docstring.
+
+"""
+#Example
+
+# def my_function():
+#     '''Demonstrates triple double quotes
+#     docstrings and does nothing really.'''
+   
+#     return None
+  
+# print("Using __doc__:")
+# print(my_function.__doc__)
+  
+# print("Using help:")
+# help(my_function)
+
+#Output
+"""Using __doc__:
+Demonstrates triple double quotes
+    docstrings and does nothing really.
+Using help:
+Help on function my_function in module __main__:
+
+my_function()
+    Demonstrates triple double quotes
+    docstrings and does nothing really."""
+
+#Annotations
+"""
+Function annotations are arbitrary python expressions that are associated with various part of functions. These expressions are evaluated at compile time and have no life in python’s runtime environment. Python does not attach any meaning to these annotations. 
+"""
+#Create a function to accept int only
+
+"""
+def increment(n: int) -> int:
+  return n+1;
+count: int = 0
+
+"""
+
+#Exceptions
 
